@@ -2,21 +2,15 @@
 defined( 'ABSPATH' ) || exit;
 
 if ( ! function_exists( 'tahaluf_site_logo' ) ) {
+	/**
+	 * Render the site logo using core's custom_logo (Customize → Site Identity → Logo).
+	 *
+	 * Available as a classic-PHP fallback. The block-theme header (parts/header.html)
+	 * uses the Site Logo block directly and does not call this function.
+	 */
 	function tahaluf_site_logo() {
-		$id = (int) get_theme_mod( 'tahaluf_logo_id', 0 );
-		if ( ! $id ) {
+		if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
 			the_custom_logo();
-			return;
 		}
-		$src = wp_get_attachment_image_src( $id, 'full' );
-		if ( ! $src ) {
-			return;
-		}
-		printf(
-			'<a href="%1$s" class="tahaluf-logo" rel="home"><img src="%2$s" alt="%3$s" /></a>',
-			esc_url( home_url( '/' ) ),
-			esc_url( $src[0] ),
-			esc_attr( get_bloginfo( 'name' ) )
-		);
 	}
 }

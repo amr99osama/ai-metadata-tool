@@ -27,3 +27,17 @@ add_action( 'after_setup_theme', function() {
 		'flex-height' => true,
 	) );
 } );
+
+/**
+ * Surface Customizer toggles as body classes so customizer-output.php
+ * can target them with CSS (sticky header, hide site title).
+ */
+add_filter( 'body_class', function( $classes ) {
+	if ( get_theme_mod( 'tahaluf_sticky_header', false ) ) {
+		$classes[] = 'tahaluf-sticky-header';
+	}
+	if ( ! get_theme_mod( 'tahaluf_show_site_title', true ) ) {
+		$classes[] = 'tahaluf-hide-site-title';
+	}
+	return $classes;
+} );
