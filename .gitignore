@@ -1,0 +1,40 @@
+# --- WordPress core (not part of this submission) ---
+/wp-admin/
+/wp-includes/
+/index.php
+/license.txt
+/readme.html
+/wp-*.php
+/xmlrpc.php
+
+# --- wp-content non-deliverable ---
+/wp-content/index.php
+/wp-content/uploads/
+/wp-content/upgrade/
+/wp-content/upgrade-temp-backup/
+/wp-content/cache/
+/wp-content/languages/
+
+# Default themes shipped with WP — not part of this submission
+/wp-content/themes/index.php
+/wp-content/themes/twentytwenty*/
+
+# Default plugins shipped with WP — not part of this submission
+/wp-content/plugins/index.php
+/wp-content/plugins/hello.php
+/wp-content/plugins/akismet/
+
+# --- Local config & secrets ---
+wp-config.php
+.htaccess
+
+# --- Implementation plans (kept local, not shipped to the open repo for now) ---
+/docs/
+
+# --- IDE / OS ---
+/.vscode/
+/.idea/
+*.log
+*.swp
+.DS_Store
+Thumbs.db
