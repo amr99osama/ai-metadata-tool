@@ -64,33 +64,6 @@ wp-content/
 5. WP Admin → **Appearance → Themes** → activate **Tahaluf Twenty Twenty-Five Child**.
 6. WP Admin → **Settings → Permalinks** → click **Save** (refreshes rewrite rules for `/discussions/`).
 
-## Developer workflow
-
-This repo is intentionally plain WordPress: no build step, no package install, and no external API keys.
-
-Useful local checks:
-
-```powershell
-# If PHP is on PATH:
-php -l wp-content/plugins/community-ai/community-ai.php
-
-# XAMPP default on Windows:
-C:\xampp\php\php.exe -l wp-content/plugins/community-ai/community-ai.php
-
-# Lint every project PHP file:
-Get-ChildItem wp-content/plugins/community-ai, wp-content/themes/tahaluf-twentytwentyfive-child -Recurse -Filter *.php |
-  ForEach-Object { C:\xampp\php\php.exe -l $_.FullName }
-```
-
-The mock service is wired through `Community_AI_Service_Interface`. To replace it with a real provider, implement the interface and filter the service:
-
-```php
-add_filter( 'community_ai_service', function( $service ) {
-	return new My_Production_AI_Service();
-} );
-```
-
-If the filtered object does not implement `Community_AI_Service_Interface`, the plugin falls back to the local mock service.
 
 ## Quick manual QA
 
@@ -114,6 +87,3 @@ Single source of truth: [`includes/class-community-ai-security.php`](wp-content/
 | Customizer save | core | `edit_theme_options` | per-setting callback | `esc_url` / `esc_attr` / `wp_kses_post` |
 | Front-end render | n/a | n/a | n/a | `esc_html` / `esc_url` / `wp_kses_post` |
 
-## Notes on authenticity
-
-Per the Tahaluf brief, AI tools were used for inspiration only. Every architectural choice, security boundary, and verification step was reviewed by hand.
