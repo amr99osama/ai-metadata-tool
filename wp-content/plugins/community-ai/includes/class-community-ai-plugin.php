@@ -29,8 +29,18 @@ final class Community_AI_Plugin {
 		Community_AI_CPT::register();
 		Community_AI_Settings::register();
 		Community_AI_MetaBox::register();
-		Community_AI_Ajax::register( new Community_AI_Mock_Service() );
+		Community_AI_Ajax::register( self::get_ai_service() );
 		Community_AI_Frontend::register();
+	}
+
+	private static function get_ai_service() {
+		$service = apply_filters( 'community_ai_service', new Community_AI_Mock_Service() );
+
+		if ( ! $service instanceof Community_AI_Service_Interface ) {
+			$service = new Community_AI_Mock_Service();
+		}
+
+		return $service;
 	}
 
 	public static function activate() {

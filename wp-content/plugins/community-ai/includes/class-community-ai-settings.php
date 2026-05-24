@@ -35,7 +35,7 @@ final class Community_AI_Settings {
 			'community_ai_main',
 			__( 'Summary Length', 'community-ai' ),
 			function() {
-				echo '<p>' . esc_html__( 'Controls the bounds of the mock-AI summary length, in characters.', 'community-ai' ) . '</p>';
+				echo '<p>' . esc_html__( 'Choose how long generated summaries should be. Editors can still adjust the text before publishing.', 'community-ai' ) . '</p>';
 			},
 			self::PAGE_SLUG
 		);
@@ -70,14 +70,17 @@ final class Community_AI_Settings {
 		);
 
 		if ( $out['min_length'] >= $out['max_length'] ) {
+			$out['max_length'] = min( 1000, max( 160, $out['min_length'] + 20 ) );
 			add_settings_error(
 				self::OPTION_NAME,
 				'community_ai_range',
-				__( 'Minimum length must be less than maximum length. Reset to defaults.', 'community-ai' ),
+				sprintf(
+					/* translators: %d: adjusted maximum summary length */
+					__( 'Maximum length must be greater than minimum length. We adjusted it to %d characters.', 'community-ai' ),
+					$out['max_length']
+				),
 				'error'
 			);
-			$out['min_length'] = 40;
-			$out['max_length'] = 160;
 		}
 		return $out;
 	}

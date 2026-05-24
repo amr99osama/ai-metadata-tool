@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Community AI
  * Plugin URI:        https://github.com/amr99osama/ai-metadata-tool
- * Description:       Adds a Community Discussions CPT with a mock-AI summarization workflow, hardened with WordPress security primitives.
+ * Description:       Adds community discussions with editable AI-style summaries for editors.
  * Version:           1.0.0
  * Requires at least: 6.0
  * Requires PHP:      7.4

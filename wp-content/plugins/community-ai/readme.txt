@@ -8,14 +8,15 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Adds a Community Discussions CPT with a hardened mock-AI summarization workflow.
+Adds community discussions with editable AI-style summaries for editors.
 
 == Description ==
-Demonstrates clean WordPress architecture: CPT, meta boxes, Settings API, admin-ajax,
-and a centralized security helper for nonces, capability checks, sanitize/escape.
+Community AI gives editors a Community Discussions post type and a local summary
+generator they can use as a starting point before publishing.
 
-The AI service is a deterministic local mock; swap in a real provider by implementing
-Community_AI_Service_Interface.
+The included AI service is a deterministic local mock, so no API keys or network
+calls are needed for review. Developers can replace it by implementing
+Community_AI_Service_Interface and filtering community_ai_service.
 
 == Installation ==
 1. Upload to /wp-content/plugins/community-ai/

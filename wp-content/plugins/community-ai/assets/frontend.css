@@ -13,3 +13,5 @@
 	color: var(--community-ai-accent, #2271b1);
 }
 .community-ai-summary__body { margin: 0; line-height: 1.55; }
+.community-ai-summary__body p { margin: 0 0 .75rem; }
+.community-ai-summary__body p:last-child { margin-bottom: 0; }

@@ -20,7 +20,7 @@ final class Community_AI_Ajax {
 		// 2) Input.
 		$post_id = isset( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : 0;
 		if ( ! $post_id ) {
-			wp_send_json_error( array( 'message' => __( 'Missing post id.', 'community-ai' ) ), 400 );
+			wp_send_json_error( array( 'message' => __( 'Missing post ID.', 'community-ai' ) ), 400 );
 		}
 
 		// 3) Capability.

@@ -51,7 +51,7 @@ final class Community_AI_Security {
 		if ( strlen( $value ) > self::MAX_TEXT_BYTES ) {
 			$value = substr( $value, 0, self::MAX_TEXT_BYTES );
 		}
-		return sanitize_text_field( $value );
+		return sanitize_textarea_field( $value );
 	}
 
 	public static function sanitize_rich_text( $value ) {

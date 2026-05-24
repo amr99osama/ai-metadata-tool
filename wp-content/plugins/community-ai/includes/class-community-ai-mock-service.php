@@ -5,8 +5,7 @@ defined( 'ABSPATH' ) || exit;
  * Deterministic mock summarizer.
  *
  * No network calls. Extracts the first meaningful sentences from the post,
- * trims to the configured length, and prefixes with an "[AI Summary]" tag so
- * reviewers can immediately see the mock is engaged.
+ * trims to the configured length, and returns plain text editors can adjust.
  */
 final class Community_AI_Mock_Service implements Community_AI_Service_Interface {
 
@@ -46,6 +45,6 @@ final class Community_AI_Mock_Service implements Community_AI_Service_Interface 
 			$summary = trim( $summary . ' ' . $pad );
 		}
 
-		return sprintf( '[AI Summary] %s', $summary );
+		return $summary;
 	}
 }

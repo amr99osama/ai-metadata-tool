@@ -58,6 +58,8 @@ add_action( 'wp_footer', function() {
 	if ( '' !== $text ) {
 		echo '<p class="tahaluf-footer__text">' . wp_kses_post( $text ) . '</p>';
 	}
-	
+	if ( $badge ) {
+		echo '<span class="tahaluf-footer__badge">' . esc_html__( 'AI-assisted', 'tahaluf-tt5-child' ) . '</span>';
+	}
 	echo '</div>';
 } );

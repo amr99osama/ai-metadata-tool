@@ -10,4 +10,24 @@ Text Domain:  tahaluf-tt5-child
 License:      GPL-2.0-or-later
 License URI:  https://www.gnu.org/licenses/gpl-2.0.html
 */
-ء
+
+.tahaluf-footer {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	justify-content: center;
+	padding: 1.5rem;
+}
+
+.tahaluf-footer__text {
+	margin: 0;
+}
+
+.tahaluf-footer__badge {
+	border: 1px solid currentColor;
+	border-radius: 999px;
+	font-size: 0.8125rem;
+	line-height: 1;
+	padding: 0.35rem 0.6rem;
+}

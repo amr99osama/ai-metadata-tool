@@ -33,8 +33,15 @@
 					var msg = ( res && res.data && res.data.message ) ? res.data.message : CommunityAI.i18n.generic_error;
 					$err.text( msg ).show();
 				}
-			} ).fail( function() {
-				$err.text( CommunityAI.i18n.generic_error ).show();
+			} ).fail( function( xhr ) {
+				var msg = (
+					xhr &&
+					xhr.responseJSON &&
+					xhr.responseJSON.data &&
+					xhr.responseJSON.data.message
+				) ? xhr.responseJSON.data.message : CommunityAI.i18n.generic_error;
+
+				$err.text( msg ).show();
 			} ).always( function() {
 				$spin.removeClass( 'is-active' );
 				$btn.prop( 'disabled', false );

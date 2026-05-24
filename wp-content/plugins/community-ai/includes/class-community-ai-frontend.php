@@ -21,7 +21,7 @@ final class Community_AI_Frontend {
 
 		$html  = '<aside class="community-ai-summary" aria-label="' . esc_attr__( 'AI-generated summary', 'community-ai' ) . '">';
 		$html .= '<h2 class="community-ai-summary__title">' . esc_html__( 'Quick summary', 'community-ai' ) . '</h2>';
-		$html .= '<p class="community-ai-summary__body">' . esc_html( $summary ) . '</p>';
+		$html .= '<div class="community-ai-summary__body">' . wpautop( esc_html( $summary ) ) . '</div>';
 		$html .= '</aside>';
 
 		return $html . $content;

@@ -15,11 +15,17 @@ final class Community_AI_CPT {
 	public static function register_post_type() {
 		register_post_type( self::POST_TYPE, array(
 			'labels'          => array(
-				'name'          => __( 'Community Discussions', 'community-ai' ),
-				'singular_name' => __( 'Community Discussion', 'community-ai' ),
-				'add_new_item'  => __( 'Add New Discussion', 'community-ai' ),
-				'edit_item'     => __( 'Edit Discussion', 'community-ai' ),
-				'menu_name'     => __( 'Discussions', 'community-ai' ),
+				'name'               => __( 'Community Discussions', 'community-ai' ),
+				'singular_name'      => __( 'Community Discussion', 'community-ai' ),
+				'add_new_item'       => __( 'Add New Discussion', 'community-ai' ),
+				'edit_item'          => __( 'Edit Discussion', 'community-ai' ),
+				'new_item'           => __( 'New Discussion', 'community-ai' ),
+				'view_item'          => __( 'View Discussion', 'community-ai' ),
+				'search_items'       => __( 'Search Discussions', 'community-ai' ),
+				'not_found'          => __( 'No discussions yet.', 'community-ai' ),
+				'not_found_in_trash' => __( 'No discussions found in Trash.', 'community-ai' ),
+				'all_items'          => __( 'All Discussions', 'community-ai' ),
+				'menu_name'          => __( 'Discussions', 'community-ai' ),
 			),
 			'public'          => true,
 			'show_in_rest'    => true,
